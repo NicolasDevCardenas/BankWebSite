@@ -1,0 +1,36 @@
+<nav id="sidebar" [ngClass]="bankServiceService.status ? 'active':''" class="px-3 pt-2">
+    <div class="sidebar-header text-center">
+        <img src="../../assets/img/persona.png" alt="" class="img-fluid">
+    </div>
+
+    <ul class="list-unstyled components">
+        <li class="active">
+            <a href="#">
+                <i class="fas fa-home"></i>
+                <span class="bold">TUS PRODUCTOS</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fas fa-briefcase"></i>
+                About
+            </a>
+            <a href="#pageSubmenu">
+                <i class="fas fa-copy"></i>
+                Pages
+            </a>
+            <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="#">Page 1</a>
+                </li>
+                <li>
+                    <a href="#">Page 2</a>
+                </li>
+                <li>
+                    <a href="#">Page 3</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</nav>

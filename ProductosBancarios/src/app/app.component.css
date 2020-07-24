@@ -1,0 +1,7 @@
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+app-home{
+    width: 100%;
+}
