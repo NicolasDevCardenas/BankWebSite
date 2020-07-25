@@ -1,9 +1,4 @@
-#content {
-    width: 100%;
-    padding: 20px;
-    min-height: 100vh;
-    transition: all 0.3s;
-}
+
 
 #content .products  .text{
     font-size: 11px;
@@ -14,3 +9,50 @@
 #content .products  a:hover{
     text-decoration: inherit;
 }
+#content .products  .balance-text{
+    font-size: 20px;
+}
+#content .custom-control-label::before{
+    height: 20px;
+}
+#content .custom-switch .custom-control-label::before{
+    left: 5px;
+    width: 30px;
+    border-radius: 10px;
+}
+
+#content .custom-switch  .custom-control-label::after{
+    left: calc(4px + 2px) ;
+    top: calc(4px + 2px);
+    width: calc(20px - 4px);
+    height: calc(20px - 4px);
+    border-radius: 10px;
+}
+#content  .carousel-control-prev, .carousel-control-next{
+    color: black;
+    width: 4%;
+}
+#content  .carousel-indicators{
+    margin: 0px;
+    bottom: -15px;
+}
+#content .carousel-indicators li{
+    background-color: black;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+#content .icon-toogle{
+    position: absolute;
+    left: -32px;
+    cursor: pointer;
+}
+#content .products{
+    overflow: auto;
+  white-space: nowrap;
+      flex-wrap: inherit;
+}
+
+
+
+

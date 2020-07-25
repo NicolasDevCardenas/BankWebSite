@@ -1,7 +1,29 @@
-.wrapper {
-    display: flex;
-    align-items: stretch;
+app-sidebar{
+    width: 15%;
+    transition-duration: 1s;
 }
 app-home{
-    width: 100%;
+    width: 85%;
+    transition-duration: 1s, 3s
 }
+app-sidebar.active{
+    width: 5%;
+}
+app-home.active{
+    width: 95%;
+}
+.menu-mobile.navbar {
+    display: none;
+}
+
+@media (max-width: 768px) { 
+    app-home,app-home.active{
+        width: 100%;
+    }
+    app-sidebar, app-sidebar.active{
+        width: 0%;
+    }
+    .menu-mobile.navbar {
+        display: flex;
+    }
+ }

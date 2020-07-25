@@ -8,18 +8,27 @@ export class BankServiceService {
   products: any = [];
   load = false;
   status: boolean = false;
+  productsDetails: any = [];
+  totalDeposit : any = 0;
+  totalCDT : any = 0;
+  totalCR : any = 0;
+
   constructor(private http: HttpClient) {
     http.get("../../assets/json/data.json")
       .subscribe(resp => {
         this.products = resp;
         this.load = true;
-
+        var totalD= 0;
+        var totalCDT= 0;
+        var totalCR =0;
         this.products.forEach(function (value) {
           if (value.typeAccount == "DEPOSIT_ACCOUNT") {
             if (value.productAccountBalances.saldo_disponible.amount < value.productAccountBalances.saldo_actual.amount) {
               let wallet = value.productAccountBalances.saldo_actual.amount - value.productAccountBalances.saldo_disponible.amount;
               value.productAccountBalances.wallet = wallet;
             }
+            totalD = totalD + value.productAccountBalances.saldo_disponible.amount;
+            
           }else if (value.typeAccount == "CREDIT_CARD") {
             let subString = value.accountInformation.accountIdentifier.toString()
             let idCard = subString.substr(0, 1);
@@ -30,7 +39,11 @@ export class BankServiceService {
             }else if (parseInt(idCard) == 5) {
               value.accountInformation.type = "m";
             }
+            totalCR = totalCR + value.productAccountBalances.cupo_disponible_compras_pesos.amount;
+          }else if (value.typeAccount == "CERTIFIED_DEPOSIT_TERM") {
+            totalCDT = totalCDT + value.productAccountBalances.valor_constitucion.amount;
           }
+
         });
 
         var newArray = []
@@ -44,14 +57,17 @@ export class BankServiceService {
           }
         }
         this.products = newArray;
-        console.log(newArray);
-
+        this.totalDeposit = totalD;
+        this.totalCDT = totalCDT;
+        this.totalCR =totalCR;
       });
   }
   
   public toogle() {
     this.status = !this.status;
   }
+
+  
 
   
 }

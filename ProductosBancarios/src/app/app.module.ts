@@ -13,7 +13,7 @@ import { FiltroPipe } from './filtro.pipe';
     AppComponent,
     SidebarComponent,
     HomeComponent,
-    FiltroPipe
+    FiltroPipe,
   ],
   imports: [
     BrowserModule,

@@ -1,36 +1,43 @@
-<nav id="sidebar" [ngClass]="bankServiceService.status ? 'active':''" class="px-3 pt-2">
+<nav id="sidebar"  class="px-3 pt-2 shadow-sm d-none d-md-block">
     <div class="sidebar-header text-center">
         <img src="../../assets/img/persona.png" alt="" class="img-fluid">
     </div>
-
-    <ul class="list-unstyled components">
-        <li class="active">
-            <a href="#">
+    <ul class="list-unstyled text-center pt-5">
+        <li class="border-bottom py-3" [ngClass]="bankServiceService.status ? 'd-none':''">
+            <a href="#" >
                 <i class="fas fa-home"></i>
-                <span class="bold">TUS PRODUCTOS</span>
+                <span class="font-weight-bold">TUS PRODUCTOS</span>
             </a>
         </li>
-        <li>
-            <a href="#">
-                <i class="fas fa-briefcase"></i>
-                About
+        <li class="border-bottom py-3" [ngClass]="bankServiceService.status ? 'd-none':''">
+            <a href="#" >
+                <i class="fas fa-home"></i>
+                <span>TU ORGANIZADOR</span>
             </a>
-            <a href="#pageSubmenu">
-                <i class="fas fa-copy"></i>
-                Pages
+        </li>
+        <li class="border-bottom py-3" [ngClass]="bankServiceService.status ? 'd-none':''">
+            <a href="#" >
+                <i class="fas fa-home"></i>
+                <span>PAGOS</span>
             </a>
-            <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li>
-                    <a href="#">Page 1</a>
-                </li>
-                <li>
-                    <a href="#">Page 2</a>
-                </li>
-                <li>
-                    <a href="#">Page 3</a>
-                </li>
-            </ul>
+        </li>
+        <li class="border-bottom py-3" [ngClass]="bankServiceService.status ? 'd-none':''">
+            <a href="#" >
+                <i class="fas fa-home"></i>
+                <span>TRANSFERENCIAS</span>
+            </a>
+        </li>
+        <li class="border-bottom py-3" [ngClass]="bankServiceService.status ? 'd-none':''">
+            <a href="#" >
+                <i class="fas fa-home"></i>
+                <span>CERTIFICADOS</span>
+            </a>
+        </li>
+        <li class="border-bottom py-3" [ngClass]="bankServiceService.status ? 'd-none':''">
+            <a href="#" >
+                <i class="fas fa-home"></i>
+                <span>SEGURIDAD</span>
+            </a>
         </li>
     </ul>
-
 </nav>

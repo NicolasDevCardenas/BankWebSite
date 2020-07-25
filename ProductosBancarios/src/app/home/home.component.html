@@ -1,68 +1,124 @@
-<div id="content">
-  <!-- info bar -->
-  <div class="d-flex">
+<!-- Home -->
+<!-- user bar -->
+  <div id="content" class="container-fluid pl-md-5 pt-3">
+  <div class="row pb-4">
     <!-- Icon toogle side bar -->
-    <div (click)="openSideBar()">
-      <div *ngIf="!bankServiceService.status">
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-bar-left" fill="currentColor"
+    <div class="col-md-4 pb-3 pb-md-0 ">
+        <span  (click)="openSideBar()" class="d-none d-md-block icon-toogle">
+          <svg  *ngIf="!bankServiceService.status" width="30px" height="30px" viewBox="0 0 16 16" class="bi bi-arrow-bar-left" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M5.854 4.646a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L3.207 8l2.647-2.646a.5.5 0 0 0 0-.708z" />
+            <path fill-rule="evenodd"
+              d="M10 8a.5.5 0 0 0-.5-.5H3a.5.5 0 0 0 0 1h6.5A.5.5 0 0 0 10 8zm2.5 6a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 1 0v11a.5.5 0 0 1-.5.5z" />
+          </svg>
+          <svg  *ngIf="bankServiceService.status" width="30px" height="30px" viewBox="0 0 16 16" class="bi bi-arrow-bar-right" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z" />
+            <path fill-rule="evenodd"
+              d="M6 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H6.5A.5.5 0 0 1 6 8zm-2.5 6a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 1 0v11a.5.5 0 0 1-.5.5z" />
+          </svg>
+        </span>
+      <span class="font-weight-bold d-none d-md-block">Buenos días, Miguel</span>
+    </div>
+    <div class="col-md-8 d-flex">
+      <div class="border-right pr-2 ml-md-auto d-flex align-items-center">
+        <span class="pr-2 d-none d-md-block">Perfil</span>
+        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor"
           xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd"
-            d="M5.854 4.646a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L3.207 8l2.647-2.646a.5.5 0 0 0 0-.708z" />
-          <path fill-rule="evenodd"
-            d="M10 8a.5.5 0 0 0-.5-.5H3a.5.5 0 0 0 0 1h6.5A.5.5 0 0 0 10 8zm2.5 6a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 1 0v11a.5.5 0 0 1-.5.5z" />
+          <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
         </svg>
       </div>
-      <div *ngIf="bankServiceService.status">
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-bar-right" fill="currentColor"
+      <div class="border-right px-2 d-flex align-items-center">
+        <span class="pr-2 d-none d-md-block">Alertas</span>
+        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-bell" fill="currentColor"
           xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2z" />
           <path fill-rule="evenodd"
-            d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z" />
-          <path fill-rule="evenodd"
-            d="M6 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H6.5A.5.5 0 0 1 6 8zm-2.5 6a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 1 0v11a.5.5 0 0 1-.5.5z" />
+            d="M8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
         </svg>
       </div>
-    </div>
-    <span class="font-weight-bold">Buenos días, Miguel</span>
-    <div class="border-right pr-2 ml-auto d-flex align-items-center">
-      <span class="pr-2">Perfil</span>
-      <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-      </svg>
-    </div>
-    <div class="border-right px-2 d-flex align-items-center">
-      <span class="pr-2">Alertas</span>
-      <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-bell" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2z"/>
-        <path fill-rule="evenodd" d="M8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
-      </svg>
-    </div>
-    <div class=" px-2 d-flex align-items-center">
-      <span class="pr-2">Salida Segura</span>
-      <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-box-arrow-in-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M8.146 11.354a.5.5 0 0 1 0-.708L10.793 8 8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z"/>
-        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 1 8z"/>
-        <path fill-rule="evenodd" d="M13.5 14.5A1.5 1.5 0 0 0 15 13V3a1.5 1.5 0 0 0-1.5-1.5h-8A1.5 1.5 0 0 0 4 3v1.5a.5.5 0 0 0 1 0V3a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5h-8A.5.5 0 0 1 5 13v-1.5a.5.5 0 0 0-1 0V13a1.5 1.5 0 0 0 1.5 1.5h8z"/>
-      </svg>
+      <div class=" px-2 d-flex align-items-center">
+        <span class="pr-2 d-none d-md-block">Salida Segura</span>
+        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-box-arrow-in-right" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M8.146 11.354a.5.5 0 0 1 0-.708L10.793 8 8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z" />
+          <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 1 8z" />
+          <path fill-rule="evenodd"
+            d="M13.5 14.5A1.5 1.5 0 0 0 15 13V3a1.5 1.5 0 0 0-1.5-1.5h-8A1.5 1.5 0 0 0 4 3v1.5a.5.5 0 0 0 1 0V3a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5h-8A.5.5 0 0 1 5 13v-1.5a.5.5 0 0 0-1 0V13a1.5 1.5 0 0 0 1.5 1.5h8z" />
+        </svg>
+      </div>
     </div>
   </div>
   <!-- Toogle products -->
-  <div class="custom-control custom-switch pl-0">
+  <div class="custom-control custom-switch pl-0 pb-4">
     <span>Mostrar otros productos</span>
     <input type="checkbox" class="custom-control-input" id="customSwitch1" (click)="showAll()">
     <label class="custom-control-label" for="customSwitch1"></label>
   </div>
-  <!-- Home -->
+  <!-- info bar -->
+  <div class="shadow-sm p-3">
+    <div class="row">
+      <div class="col-md-8 d-flex align-items-center"><span class="font-weight-bold">¿Cómo se ven tus finanzas?</span></div>
+      <div class="col-md-4">
+        <!-- Slider -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner ">
+            <div class="carousel-item active py-2 px-4">
+              <div class="d-flex">
+                <span class="pr-">En productos de ahorro tienes:</span>
+                <span class="font-weight-bold">{{bankServiceService.totalDeposit |currency:'COP':'$'}}</span>
+              </div>
+            </div>
+            <div class="carousel-item py-2 px-4">
+              <div class="d-flex">
+                <span class="pr-3">En inversiones de CDT tienes:</span>
+                <span class="font-weight-bold">{{bankServiceService.totalCDT |currency:'COP':'$'}}</span>
+              </div>
+            </div>
+            <div class="carousel-item py-2 px-4">
+              <div class="d-flex">
+                <span class="pr-3">Cupo de tus tarjetas de credito:</span>
+                <span class="font-weight-bold">{{bankServiceService.totalCR |currency:'COP':'$'}}</span>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <svg width="25px" height="25px" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+            </svg>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <svg width="25px" height="25px" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                  </svg>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Products -->
-  <div *ngFor="let group of bankServiceService.products | filtro:filterargs" >
+  <div *ngFor="let group of bankServiceService.products | filtro:filterargs" class="pt-4">
     <label class="font-weight-bold">{{group.name == "CERTIFIED_DEPOSIT_TERM" ? 
       "CDT" : group.name == "CREDIT"
       ? "Credito":group.name == "CURRENT_ACCOUNT" ?
        "Cuenta corriente":group.name == "DEPOSIT_ACCOUNT" ?
         "Cuenta de ahorros":group.name == "CREDIT_CARD" ? "Tarjeta de crédito":"Otros"}}</label>
-        <span class="font-weight-bold">({{group.value.length}})</span>
+    <span class="font-weight-bold">({{group.value.length}})</span>
     <div class="row products">
-      <div class="col-md-3 mb-3" *ngFor="let bank of group.value" >
-        <div class="card h-100">
+      <div class="col-md-4 col-lg-3 mb-3 " *ngFor="let bank of group.value">
+        <div class="card h-100 shadow-sm">
           <div class="card-body">
             <!-- Product icon and see more -->
             <div class="d-flex pb-3">
@@ -72,50 +128,79 @@
                bank.typeAccount == 'CURRENT_ACCOUNT' ? '../../assets/img/corriente.png' : 
                bank.typeAccount == 'CREDIT_CARD' && bank.accountInformation.type == 'v'? '../../assets/img/visa.png' : '../../assets/img/tarjeta-mastercard.png'
               " alt="">
-              <div class="ml-auto">
-                <a href="#" >Ver detalle 
-                  <svg width="13px" height="13px" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+              <div class="ml-auto" *ngIf="bank.typeAccount != 'CREDIT'">
+                <a href="#" (click)="showDetails(bank)">Ver detalle
+                  <svg width="13px" height="13px" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
                   </svg>
                 </a>
               </div>
             </div>
             <!-- Product Title -->
-            <h5 class="card-title">
+            <h3 class="card-title">
               {{bank.typeAccount == "CERTIFIED_DEPOSIT_TERM" ? 
                "CDT" : bank.typeAccount == "CREDIT"
                ? "Credito":bank.typeAccount == "CURRENT_ACCOUNT" ?
                 "Cuenta corriente":bank.typeAccount == "DEPOSIT_ACCOUNT" ?
                  "Cuenta de ahorros":bank.typeAccount == "CREDIT_CARD" ? "Tarjeta de crédito":"Otros"}}
-            </h5>
+            </h3>
             <!-- Id product -->
-            <p class="card-text">Nro. {{bank.typeAccount == "CREDIT_CARD" ? 
+            <p class="card-text">Nro.
+              {{bank.typeAccount == "CREDIT_CARD" ? 
               "XXX XXX XXX XXX" + " "+bank.accountInformation.accountIdentifier :bank.accountInformation.accountIdentifier}}</p>
             <!-- Balance -->
-            <div>
+            <div class="pb-4">
               <span class="card-text">{{bank.typeAccount == 'CERTIFIED_DEPOSIT_TERM'? 
-                "Valor invertido":bank.typeAccount == 'CREDIT_CARD'?
-                 "Cupo disponible":bank.typeAccount == "CURRENT_ACCOUNT" && bank.overDraftDays > 0? 
-                 "En sobre giro":bank.typeAccount == "DEPOSIT_ACCOUNT" || 
-                 (bank.typeAccount == "CURRENT_ACCOUNT" && !bank.overDraftDays) ? "Saldo disponible":""}}
+                "Valor invertido :":bank.typeAccount == 'CREDIT_CARD' && !bank.productAccountBalances.paymentDate ?
+                 "Cupo disponible :":bank.typeAccount == 'CREDIT_CARD' && bank.productAccountBalances.paymentDate ? 
+                 "Pròximo pago mìnimo :":bank.typeAccount == "CURRENT_ACCOUNT" && bank.overDraftDays > 0? 
+                 "En sobre giro :":bank.typeAccount == "DEPOSIT_ACCOUNT" || 
+                 (bank.typeAccount == "CURRENT_ACCOUNT" && !bank.overDraftDays) ? "Saldo disponible :":""}}
               </span>
-              <p>
+              <p class="font-weight-bold balance-text pb-0">
                 {{ (bank.typeAccount == 'DEPOSIT_ACCOUNT' || bank.typeAccount == 'CURRENT_ACCOUNT' ?  bank.productAccountBalances.saldo_disponible.amount :
                 bank.typeAccount == 'CERTIFIED_DEPOSIT_TERM' ?  bank.productAccountBalances.valor_constitucion.amount: 
-                bank.typeAccount == 'CREDIT_CARD' ?  bank.productAccountBalances.cupo_disponible_compras_pesos.amount: "0")
+                bank.typeAccount == 'CREDIT_CARD' && !bank.productAccountBalances.paymentDate?  bank.productAccountBalances.cupo_disponible_compras_pesos.amount:
+                 bank.typeAccount == 'CREDIT_CARD'&& bank.productAccountBalances.paymentDate ?  bank.productAccountBalances.valor_pago_minimo.amount: "0")
                 
                 |currency:'COP':'$'}}</p>
-                
+
             </div>
             <!-- bottom credit card -->
             <div *ngIf="bank.typeAccount == 'CREDIT_CARD'">
-              <div>
-                <span>Fecha de corte</span>
-                <span>{{ bank.dueDate | date : "mediumDate" }}</span>
+              <!-- No sabia que variable tiene la fecha de pago asi que invente una-----  paymentDate-->
+              <div *ngIf="bank.productAccountBalances.paymentDate ">
+                <div>
+                  <span class="text pr-2">Pago total:</span>
+                  <span
+                    class="price">{{ bank.productAccountBalances.pago_total_pesos.amount |currency:'COP':'$' }}</span>
+                </div>
+                <div>
+                  <span class="text pr-2">Fecha de pago:</span>
+                  <span class="price">{{bank.productAccountBalances.paymentDate| date : "mediumDate" }}</span>
+                </div>
+                <div>
+                  <button class="btn btn-primary btn-block">PAGAR</button>
+                </div>
               </div>
-              <div>
-                <span>Total gastado</span>
-                <span>{{bank.productAccountBalances.cupo_total.amount - bank.productAccountBalances.cupo_disponible_compras_pesos.amount}}</span>
+              <div *ngIf="!bank.productAccountBalances.paymentDate ">
+                <div class="pb-3">
+                  <span class="text pr-2">Fecha de corte:</span>
+                  <span class="price font-weight-bold">{{ bank.dueDate | date : "mediumDate" }}</span>
+                </div>
+                <div class="pb-2">
+                  <span class="text  pr-2">Total gastado:</span>
+                  <span
+                    class="price font-weight-bold">{{(bank.productAccountBalances.pago_total_pesos.amount < 0 ? "0":bank.productAccountBalances.pago_total_pesos.amount) |currency:'COP':'$' }}</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped" role="progressbar"
+                    [style.width]="
+                  ((bank.productAccountBalances.pago_total_pesos.amount / bank.productAccountBalances.cupo_total.amount)*100) + '%'" aria-valuenow="10" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+                </div>
               </div>
             </div>
             <!-- Bottom info DEPOSIT_ACCOUNT -->
@@ -149,6 +234,85 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modalDetails" tabindex="-1" role="dialog" aria-labelledby="modalDetailsLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalDetailsLabel">{{DetailProducts.typeAccount == "CERTIFIED_DEPOSIT_TERM" ? 
+            "CDT" : DetailProducts.typeAccount == "CREDIT"
+            ? "Credito":DetailProducts.typeAccount == "CURRENT_ACCOUNT" ?
+             "Cuenta corriente":DetailProducts.typeAccount == "DEPOSIT_ACCOUNT" ?
+              "Cuenta de ahorros":DetailProducts.typeAccount == "CREDIT_CARD" ? "Tarjeta de crédito":"Otros"}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" *ngIf="DetailProducts.typeAccount">
+          <p class="font-weight-bold">{{DetailProducts.accountInformation.bank == "BANCO_1" ? 
+            "Banco Uno" : DetailProducts.accountInformation.bank == "BANCO_2"
+            ? "Banco Dos":DetailProducts.accountInformation.bank == "BANCO_3" ?
+             "Banco Tres":DetailProducts.accountInformation.bank == "BANCO_4" ?
+              "Banco Cuatro":DetailProducts.accountInformation.bank == "BANCO_5" ? "Banco Cinco":"Otros"}}</p>
+          <p *ngIf="DetailProducts.lastTransactionDate "><span class="font-weight-bold">Fecha ultima transacción:</span>
+            {{DetailProducts.lastTransactionDate | date : "mediumDate" }}</p>
+
+          <!-- CDT -->
+          <div *ngIf="DetailProducts.typeAccount == 'CERTIFIED_DEPOSIT_TERM'">
+            <p><span class="font-weight-bold">Fecha de apertura:</span>
+              {{DetailProducts.openedDate | date : "mediumDate"}}</p>
+            <p><span class="font-weight-bold">Intereses Pagados:</span>
+              {{DetailProducts.productAccountBalances.interes_pagado.amount|currency:'COP':'$' }}</p>
+            <p><span class="font-weight-bold">Intereses Causados:</span>
+              {{DetailProducts.productAccountBalances.intereses_causados.amount|currency:'COP':'$' }}</p>
+            <p><span class="font-weight-bold">Retefuente:</span>
+              {{DetailProducts.productAccountBalances.retefuente.amount|currency:'COP':'$' }}</p>
+            <p><span class="font-weight-bold">Saldo pendiente:</span>
+              {{DetailProducts.productAccountBalances.saldo_pendiente_pago.amount|currency:'COP':'$' }}</p>
+            <p><span class="font-weight-bold">Tasa nominal:</span>
+              {{DetailProducts.productAccountBalances.tasa_nominal.rate }} %</p>
+          </div>
+
+          <!-- CREDIT_CARD -->
+          <div *ngIf="DetailProducts.typeAccount == 'CREDIT_CARD'">
+            <p><span class="font-weight-bold">Cupo en avances:</span>
+              {{DetailProducts.productAccountBalances.cupo_disponible_avances_pesos.amount|currency:'COP':'$' }}</p>
+            <p><span class="font-weight-bold">Cupo total:</span>
+              {{DetailProducts.productAccountBalances.cupo_total.amount|currency:'COP':'$' }}</p>
+            <p><span class="font-weight-bold">Pago total:</span>
+              {{DetailProducts.productAccountBalances.pago_total_pesos.amount|currency:'COP':'$' }}</p>
+            <p><span class="font-weight-bold">Saldo en mora:</span>
+              {{DetailProducts.productAccountBalances.saldo_mora_pesos.amount|currency:'COP':'$' }}</p>
+            <p><span class="font-weight-bold">Valor minimo:</span>
+              {{DetailProducts.productAccountBalances.valor_pago_minimo.amount |currency:'COP':'$'}} </p>
+          </div>
+          <!-- CURRENT_ACCOUNT -->
+          <div *ngIf="DetailProducts.typeAccount == 'CURRENT_ACCOUNT'">
+            <p><span class="font-weight-bold">Cupo remesas:</span>
+              {{DetailProducts.productAccountBalances.cupo_aprobado_remesas.amount|currency:'COP':'$' }}</p>
+            <p><span class="font-weight-bold">Cupo sobregiro:</span>
+              {{DetailProducts.productAccountBalances.cupo_disponible_sobregiro.amount|currency:'COP':'$' }}</p>
+          </div>
+          <!-- DEPOSIT_ACCOUNT -->
+          <div *ngIf="DetailProducts.typeAccount == 'DEPOSIT_ACCOUNT'||DetailProducts.typeAccount == 'CURRENT_ACCOUNT'">
+            <p><span class="font-weight-bold">Saldo de ayer:</span>
+              {{DetailProducts.productAccountBalances.saldo_ayer.amount|currency:'COP':'$' }}</p>
+            <p><span class="font-weight-bold">Saldo canje :</span>
+              {{DetailProducts.productAccountBalances.saldo_canje.amount|currency:'COP':'$' }}</p>
+            <p><span class="font-weight-bold">Saldo canje 24 Horas:</span>
+              {{DetailProducts.productAccountBalances.saldo_canje_24_horas.amount|currency:'COP':'$' }}</p>
+            <p><span class="font-weight-bold">Saldo canje 48 Horas:</span>
+              {{DetailProducts.productAccountBalances.saldo_canje_48_horas.amount|currency:'COP':'$' }}</p>
+            <p><span class="font-weight-bold">Saldo canje 72 Horas:</span>
+              {{DetailProducts.productAccountBalances.saldo_canje_72_horas.amount |currency:'COP':'$'}} </p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
         </div>
       </div>
     </div>

@@ -1,6 +1,38 @@
-<div class="wrapper">
+<!-- Menu mobile -->
+<nav class="menu-mobile navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Buenos días, Miguel</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">TUS PRODUCTOS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">TU ORGANIZADOR</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">PAGOS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">TRANSFERENCIAS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">CERTIFICADOS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">SEGURIDAD</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="d-flex">
   <!-- Sidebar  -->
-  <app-sidebar></app-sidebar>
+  <app-sidebar [ngClass]="bankServiceService.status ? 'active':''"></app-sidebar>
+  
   <!-- Page Content  -->
-  <app-home></app-home>
+  <app-home [ngClass]="bankServiceService.status ? 'active':''"></app-home>
 </div>

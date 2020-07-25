@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BankServiceService } from "../bank-service.service";
-
+import * as $ from 'jquery';
+declare var $: any;
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,7 +9,8 @@ import { BankServiceService } from "../bank-service.service";
 })
 export class HomeComponent implements OnInit {
   filterargs : string = "";
-  constructor(public bankServiceService : BankServiceService) {
+  DetailProducts : any = [];
+  constructor(public bankServiceService : BankServiceService , ) {
     this.filterargs ="BANCO_1";
    }
 
@@ -17,6 +19,15 @@ export class HomeComponent implements OnInit {
   // Open The side bar
   public openSideBar(){
     this.bankServiceService.toogle();
+  }
+  public showDetails(bank){
+    this.DetailProducts = bank;
+    if (this.DetailProducts) {
+      $('#modalDetails').modal({backdrop: 'static', keyboard: false})
+      $("#modalDetails").modal("show");
+      
+    }
+    
   }
   public showAll(){
     if (this.filterargs == "BANCO_1") {
