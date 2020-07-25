@@ -4,3 +4,13 @@
     min-height: 100vh;
     transition: all 0.3s;
 }
+
+#content .products  .text{
+    font-size: 11px;
+}
+#content .products  .price{
+    font-size: 13px;
+}
+#content .products  a:hover{
+    text-decoration: inherit;
+}

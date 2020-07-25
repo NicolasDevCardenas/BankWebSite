@@ -7,12 +7,22 @@ import { BankServiceService } from "../bank-service.service";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor(private bankServiceService : BankServiceService) { }
+  filterargs : string = "";
+  constructor(public bankServiceService : BankServiceService) {
+    this.filterargs ="BANCO_1";
+   }
 
   ngOnInit(): void {
   }
+  // Open The side bar
   public openSideBar(){
     this.bankServiceService.toogle();
+  }
+  public showAll(){
+    if (this.filterargs == "BANCO_1") {
+      this.filterargs = "all";
+    }else{
+      this.filterargs ="BANCO_1";
+    }
   }
 }

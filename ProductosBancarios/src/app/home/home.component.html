@@ -1,10 +1,156 @@
 <div id="content">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="openSideBar()">
-          <i class="fas fa-align-left"></i>
-          <span>Toggle Sidebar</span>
-        </button>
+  <!-- info bar -->
+  <div class="d-flex">
+    <!-- Icon toogle side bar -->
+    <div (click)="openSideBar()">
+      <div *ngIf="!bankServiceService.status">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-bar-left" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M5.854 4.646a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L3.207 8l2.647-2.646a.5.5 0 0 0 0-.708z" />
+          <path fill-rule="evenodd"
+            d="M10 8a.5.5 0 0 0-.5-.5H3a.5.5 0 0 0 0 1h6.5A.5.5 0 0 0 10 8zm2.5 6a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 1 0v11a.5.5 0 0 1-.5.5z" />
+        </svg>
       </div>
-    </nav>
+      <div *ngIf="bankServiceService.status">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-bar-right" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z" />
+          <path fill-rule="evenodd"
+            d="M6 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H6.5A.5.5 0 0 1 6 8zm-2.5 6a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 1 0v11a.5.5 0 0 1-.5.5z" />
+        </svg>
+      </div>
+    </div>
+    <span class="font-weight-bold">Buenos días, Miguel</span>
+    <div class="border-right pr-2 ml-auto d-flex align-items-center">
+      <span class="pr-2">Perfil</span>
+      <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+      </svg>
+    </div>
+    <div class="border-right px-2 d-flex align-items-center">
+      <span class="pr-2">Alertas</span>
+      <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-bell" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2z"/>
+        <path fill-rule="evenodd" d="M8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+      </svg>
+    </div>
+    <div class=" px-2 d-flex align-items-center">
+      <span class="pr-2">Salida Segura</span>
+      <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-box-arrow-in-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M8.146 11.354a.5.5 0 0 1 0-.708L10.793 8 8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z"/>
+        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 1 8z"/>
+        <path fill-rule="evenodd" d="M13.5 14.5A1.5 1.5 0 0 0 15 13V3a1.5 1.5 0 0 0-1.5-1.5h-8A1.5 1.5 0 0 0 4 3v1.5a.5.5 0 0 0 1 0V3a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5h-8A.5.5 0 0 1 5 13v-1.5a.5.5 0 0 0-1 0V13a1.5 1.5 0 0 0 1.5 1.5h8z"/>
+      </svg>
+    </div>
   </div>
+  <!-- Toogle products -->
+  <div class="custom-control custom-switch pl-0">
+    <span>Mostrar otros productos</span>
+    <input type="checkbox" class="custom-control-input" id="customSwitch1" (click)="showAll()">
+    <label class="custom-control-label" for="customSwitch1"></label>
+  </div>
+  <!-- Home -->
+  <!-- Products -->
+  <div *ngFor="let group of bankServiceService.products | filtro:filterargs" >
+    <label class="font-weight-bold">{{group.name == "CERTIFIED_DEPOSIT_TERM" ? 
+      "CDT" : group.name == "CREDIT"
+      ? "Credito":group.name == "CURRENT_ACCOUNT" ?
+       "Cuenta corriente":group.name == "DEPOSIT_ACCOUNT" ?
+        "Cuenta de ahorros":group.name == "CREDIT_CARD" ? "Tarjeta de crédito":"Otros"}}</label>
+        <span class="font-weight-bold">({{group.value.length}})</span>
+    <div class="row products">
+      <div class="col-md-3 mb-3" *ngFor="let bank of group.value" >
+        <div class="card h-100">
+          <div class="card-body">
+            <!-- Product icon and see more -->
+            <div class="d-flex pb-3">
+              <img [src]="bank.typeAccount == 'DEPOSIT_ACCOUNT'? '../../assets/img/ahorros.png' : 
+              bank.typeAccount == 'CERTIFIED_DEPOSIT_TERM'? '../../assets/img/cdt.png' :
+               bank.typeAccount == 'CREDIT'? '../../assets/img/credito.png' : 
+               bank.typeAccount == 'CURRENT_ACCOUNT' ? '../../assets/img/corriente.png' : 
+               bank.typeAccount == 'CREDIT_CARD' && bank.accountInformation.type == 'v'? '../../assets/img/visa.png' : '../../assets/img/tarjeta-mastercard.png'
+              " alt="">
+              <div class="ml-auto">
+                <a href="#" >Ver detalle 
+                  <svg width="13px" height="13px" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <!-- Product Title -->
+            <h5 class="card-title">
+              {{bank.typeAccount == "CERTIFIED_DEPOSIT_TERM" ? 
+               "CDT" : bank.typeAccount == "CREDIT"
+               ? "Credito":bank.typeAccount == "CURRENT_ACCOUNT" ?
+                "Cuenta corriente":bank.typeAccount == "DEPOSIT_ACCOUNT" ?
+                 "Cuenta de ahorros":bank.typeAccount == "CREDIT_CARD" ? "Tarjeta de crédito":"Otros"}}
+            </h5>
+            <!-- Id product -->
+            <p class="card-text">Nro. {{bank.typeAccount == "CREDIT_CARD" ? 
+              "XXX XXX XXX XXX" + " "+bank.accountInformation.accountIdentifier :bank.accountInformation.accountIdentifier}}</p>
+            <!-- Balance -->
+            <div>
+              <span class="card-text">{{bank.typeAccount == 'CERTIFIED_DEPOSIT_TERM'? 
+                "Valor invertido":bank.typeAccount == 'CREDIT_CARD'?
+                 "Cupo disponible":bank.typeAccount == "CURRENT_ACCOUNT" && bank.overDraftDays > 0? 
+                 "En sobre giro":bank.typeAccount == "DEPOSIT_ACCOUNT" || 
+                 (bank.typeAccount == "CURRENT_ACCOUNT" && !bank.overDraftDays) ? "Saldo disponible":""}}
+              </span>
+              <p>
+                {{ (bank.typeAccount == 'DEPOSIT_ACCOUNT' || bank.typeAccount == 'CURRENT_ACCOUNT' ?  bank.productAccountBalances.saldo_disponible.amount :
+                bank.typeAccount == 'CERTIFIED_DEPOSIT_TERM' ?  bank.productAccountBalances.valor_constitucion.amount: 
+                bank.typeAccount == 'CREDIT_CARD' ?  bank.productAccountBalances.cupo_disponible_compras_pesos.amount: "0")
+                
+                |currency:'COP':'$'}}</p>
+                
+            </div>
+            <!-- bottom credit card -->
+            <div *ngIf="bank.typeAccount == 'CREDIT_CARD'">
+              <div>
+                <span>Fecha de corte</span>
+                <span>{{ bank.dueDate | date : "mediumDate" }}</span>
+              </div>
+              <div>
+                <span>Total gastado</span>
+                <span>{{bank.productAccountBalances.cupo_total.amount - bank.productAccountBalances.cupo_disponible_compras_pesos.amount}}</span>
+              </div>
+            </div>
+            <!-- Bottom info DEPOSIT_ACCOUNT -->
+            <div *ngIf="bank.typeAccount == 'DEPOSIT_ACCOUNT'">
+              <div class="row">
+                <div class="col-lg-6">
+                  <span class="d-block text">En bolsillos</span>
+                  <span
+                    class="font-weight-bold price">{{(!bank.productAccountBalances.wallet ? "0" : bank.productAccountBalances.wallet) |currency:'COP':'$'}}</span>
+                </div>
+                <div class="col-lg-6 text">
+                  <span class="d-block">Saldo total</span>
+                  <span
+                    class="font-weight-bold price">{{bank.productAccountBalances.saldo_actual.amount |currency:'COP':'$'}}</span>
+                </div>
+              </div>
+            </div>
+            <!-- Botom info CURRENT_ACCOUNT -->
+            <div *ngIf="bank.overDraftDays">
+              <span class="d-block">Días en sobregiro</span>
+              <span class="font-weight-bold">{{bank.overDraftDays}}</span>
+            </div>
+            <!-- Bottom CDT -->
+            <div *ngIf="bank.typeAccount == 'CERTIFIED_DEPOSIT_TERM'">
+              <span class="pr-2 text">Plazo:</span>
+              <span class="font-weight-bold price">{{bank.term.count}}
+                {{bank.term.units == "Days" ? "Días":"Meses"}}</span>
+              <div>
+                <span class="d-block text">Fecha de vencimiento:</span>
+                <span class="font-weight-bold price">{{ bank.closedDate | date : "mediumDate" }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
